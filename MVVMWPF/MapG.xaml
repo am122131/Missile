@@ -1,0 +1,20 @@
+﻿<Window x:Class="MVVMWPF.MapG"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMWPF"
+        mc:Ignorable="d"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MapG" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <m:Map x:Name="MyMap" CredentialsProvider="FUWJN0RckiSo1rAQSbDQ~qBQt4TxaMDjDd2FIJyn42A~AigAXFnUBlTTheND7xl3LHVxr03YpammIUNKj-CZ_ntjT-uHAaVEisKWGMVnIUbQ" 
+               Center="32.061587, 34.880087" ZoomLevel="12" Margin="0,0,0,-0.4">
+           
+        </m:Map>
+        <Button x:Name="ButtonFlecher" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Gray" Click="ButtonFlecher_Click" Margin="754,-1,9.6,391" >
+            <materialDesing:PackIcon Kind="Backburger"/>
+        </Button>
+    </Grid>
+</Window>

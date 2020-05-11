@@ -1,0 +1,124 @@
+﻿<Window x:Class="MVVMWPF.FallingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMWPF"
+        xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:views="clr-namespace:MVVMWPF.Views"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        mc:Ignorable="d"
+        Title="FallingWindow"  Height="500" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+
+
+        <Grid Background="#FFEEEEEE" MouseDown="Grid_MouseDown">
+            <StackPanel>
+                <Grid Background="#FF0069C0" Height="10"/>
+
+                <Grid Margin="5" >
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
+
+                        <Button Width="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Gray" Click="Button_Click_1" Height="30" VerticalAlignment="Top">
+                            <materialDesing:PackIcon Kind="Settings"/>
+                        </Button>
+
+                        <Button x:Name="ButtonFlecher" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Gray" Click="ButtonFlecher_Click" >
+                            <materialDesing:PackIcon Kind="Power"/>
+                        </Button>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </StackPanel>
+
+            <Grid Width="250" HorizontalAlignment="Left" Background="#FF222222" >
+                <materialDesing:TransitioningContent x:Name="TrainsitionigContentSlide"  OpeningEffect="{materialDesing:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                    <Grid x:Name="GridCursor" Margin="0 100 0 0" Background="#FF0069C0" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
+                </materialDesing:TransitioningContent>
+                <ListView x:Name="ListViewMenu" Margin="0,73,0,60" Foreground="LightGray" Background="#FF222222" FontFamily="Champagne &amp; Limousines" SelectionChanged="ListViewMenu_SelectionChanged">
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected_2">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesing:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Home" FontSize="22" VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+
+                    </ListViewItem>
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected_3">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesing:PackIcon Kind="Plus" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Rocket hit" FontSize="22" VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+
+                    </ListViewItem>
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected_4">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesing:PackIcon Kind="Map" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Map" FontSize="22" VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+
+
+
+                    </ListViewItem>
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesing:PackIcon Kind="FormatListBulleted" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Reports" FontSize="22" VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+
+                    </ListViewItem>
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected_5">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesing:PackIcon Kind="Information" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Information" FontSize="22" VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+
+                    </ListViewItem>
+
+
+                </ListView>
+
+            </Grid>
+            <Grid>
+                <StackPanel/>
+                <Button x:Name="button" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Gray" Margin="833,411,37,59" Click="Button_Click">
+                    <materialDesing:PackIcon Kind="Search"/>
+                </Button>
+                <Grid HorizontalAlignment="Left" Height="100" Margin="374,330,0,0" VerticalAlignment="Top" Width="100"/>
+
+
+
+            </Grid>
+            <DatePicker x:Name="datep" HorizontalAlignment="Left" Margin="694,417,0,0" VerticalAlignment="Top" Width="122" Height="27" >
+            </DatePicker>
+            <Label x:Name="label" Content=" rocket hits:" HorizontalAlignment="Left" Margin="319,45,0,0" VerticalAlignment="Top" Height="53" Width="185" FontSize="24" FontWeight="Bold" FontFamily="Segoe UI Black" Background="{x:Null}" Foreground="#FF0069C0"/>
+            <Label x:Name="label1_Copy" Content="Search by Date" HorizontalAlignment="Left" Margin="598,418,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF0069C0"/>
+            <Grid HorizontalAlignment="Left" Height="296" Margin="609,141,0,0" VerticalAlignment="Top" Width="242">
+                <Grid Margin="0,-26,0,26">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="349*" />
+                        <ColumnDefinition Width="30*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="12,12,16,71" Name="imgPhoto"
+        Stretch="Fill" Grid.Column="1" />
+                    <Button Height="23" HorizontalAlignment="Left"
+        Margin="12,0,0,34" Name="btnLoad" VerticalAlignment="Bottom"
+        Width="75" Grid.Column="1" Click="btnLoad_Click">_Load</Button>
+                </Grid>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="291" Margin="278,199,0,0" VerticalAlignment="Top" Width="306"/>
+            <m:Map x:Name="MyMap" CredentialsProvider="FUWJN0RckiSo1rAQSbDQ~qBQt4TxaMDjDd2FIJyn42A~AigAXFnUBlTTheND7xl3LHVxr03YpammIUNKj-CZ_ntjT-uHAaVEisKWGMVnIUbQ" 
+                Center="32.061587, 34.880087" ZoomLevel="12" Margin="278,103,316,12"/>
+            <Label x:Name="label1" Content="Load here photo of the hit" HorizontalAlignment="Left" Margin="646,70,0,0" VerticalAlignment="Top" Height="66" Width="244" Background="{x:Null}" Foreground="#FF0069C0" FontSize="14" FontWeight="Bold"/>
+        </Grid>
+
+
+
+
+    </Grid>
+
+</Window>
+
